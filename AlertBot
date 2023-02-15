@@ -1,0 +1,21 @@
+import telegram
+import requests
+import json
+
+# Set up the Telegram bot
+bot = telegram.Bot(token='YOUR_BOT_TOKEN')
+
+# Set up the Trading View webhook
+webhook_url = 'YOUR_WEBHOOK_URL'
+
+# Define a function to handle the Trading View alerts
+def handle_alert(alert):
+    # Send a message to the Telegram bot
+    bot.send_message(chat_id='YOUR_CHAT_ID', text=alert)
+
+# Listen for alerts from Trading View
+while True:
+    response = requests.get(webhook_url)
+    alerts = json.loads(response.text)
+    for alert in alerts:
+        handle_alert(alert)
