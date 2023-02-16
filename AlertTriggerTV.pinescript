@@ -1,0 +1,4 @@
+{{exchange}}:{{ticker}}
+{{strategy.order.action}} @ efectuada en {{strategy.order.price}}
+Momento de {{strategy.order.message}}
+{{timenow}} en {{interval}}
